@@ -1,9 +1,7 @@
 defmodule Rockelivery do
-  @moduledoc """
-  Rockelivery keeps the contexts that define your domain
-  and business logic.
+  alias Rockelivery.Users.Create, as: UsersCreate
+  alias Rockelivery.Users.Get, as: UsersGet
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  defdelegate create_user(params), to: UsersCreate, as: :call
+  defdelegate get_user_by_id(id), to: UsersGet, as: :by_id
 end
