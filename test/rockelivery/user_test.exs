@@ -12,7 +12,7 @@ defmodule Rockelivery.UserTest do
 
       response = User.changeset(params)
 
-      assert %Changeset{changes: %{name: "User Test"}, valid?: true} = response
+      assert %Changeset{changes: %{name: "Factory User"}, valid?: true} = response
     end
 
     test "when updating a changeset, returns a valid changeset with the given changes" do
