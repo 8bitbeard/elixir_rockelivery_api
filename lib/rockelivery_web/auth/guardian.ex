@@ -12,14 +12,15 @@ defmodule RockeliveryWeb.Auth.Guardian do
     |> UsersGet.by_id()
   end
 
-  def authenticate(%{"id" => user_id, "password" => password}) do
-    with {:ok, %User{password_hash: hash} = user} <- UsersGet.by_id(user_id),
+  def authenticate(%{"email" => email, "password" => password}) do
+    with {:ok, %User{password_hash: hash} = user} <- UsersGet.by_email(email),
          true <- Pbkdf2.verify_pass(password, hash),
          {:ok, token, _claims} <- encode_and_sign(user) do
       {:ok, token}
     else
-      false -> {:error, Error.build(:unauthorized, "Please verify your credentials")}
-      error -> error
+      # false -> {:error, Error.build(:unauthorized, "Wrong e-mail or password!")}
+      # error -> error
+      _ -> {:error, Error.build(:unauthorized, "Wrong e-mail or password!")}
     end
   end
 
