@@ -1,5 +1,4 @@
 defmodule Rockelivery.Stack do
-
   use GenServer
 
   def start_link(initial_stack) when is_list(initial_stack) do

@@ -13,9 +13,9 @@ defmodule Rockelivery.Orders.ValidateAndMultiplyItems do
   defp multiply_items(false, items, items_params) do
     items =
       Enum.reduce(items_params, [], fn %{"id" => id, "quantity" => quantity}, acc ->
-      item = Map.get(items, id)
-      acc ++ List.duplicate(item, quantity)
-    end)
+        item = Map.get(items, id)
+        acc ++ List.duplicate(item, quantity)
+      end)
 
     {:ok, items}
   end

@@ -1,5 +1,4 @@
 defmodule Rockelivery.Orders.TotalPrice do
-
   alias Rockelivery.Item
 
   def calculate(items) do
