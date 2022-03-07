@@ -55,6 +55,11 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base
 
+  config :rockelivery, RockeliveryWeb.Endpoint,
+    server: true,
+    http: [port: {:system, "PORT"}],
+    url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443]
+
   # ## Using releases
   #
   # If you are doing OTP releases, you need to instruct Phoenix
