@@ -18,10 +18,11 @@ user = %User{
   cep: "12345678",
   cpf: "12345678901",
   email: "banana@frutas.com",
-  password: "12345"
+  password: "12345",
   name: "Banana Man"
 }
 
+IO.puts("======= Inserting User =======")
 %User{id: user_id} = Repo.insert!(user)
 
 item1 = %Item{
@@ -38,6 +39,7 @@ item1 = %Item{
   photo: "priv/photos/banana_cozida.png"
 }
 
+IO.puts("======= Inserting Items =======")
 Repo.insert!(item1)
 Repo.insert!(item2)
 
@@ -49,4 +51,5 @@ order = %Order{
   payment_method: :money
 }
 
+IO.puts("======= Inserting Order =======")
 Repo.insert!(order)
