@@ -32,7 +32,7 @@ item1 = %Item{
   photo: "priv/photos/banana_frita.png"
 }
 
-item1 = %Item{
+item2 = %Item{
   category: :food,
   description: "banana cozida",
   price: Decimal.new("10.50"),
